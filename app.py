@@ -10,7 +10,7 @@ Tasks:
 [x]: Decide where to store movies
 []: What is the format of a movie?
 [x]: Show the user the main interface and get their input
-[]: Allow users to add movies
+[x]: Allow users to add movies
 []: Show all their movies
 []: Find a movie
 [x]: Stop running the program when they type 'q'
@@ -34,13 +34,13 @@ def menu():
         if user_input == 'a':
             add_movie()
         elif user_input == 'l':
-            show_moies()
+            show_movies()
         elif user_input == 'f':
             find_movie()
         else:
             print('Unknown command, please try again.')
 
-        user_input = input("Enter \n"
+        user_input = input("\nEnter \n"
                            "'a' to add a movie\n"
                            "'l' to see your movies\n"
                            "'f' to find a movie, and\n"
@@ -59,6 +59,12 @@ def add_movie():
     })
 
 
-menu()
+def show_movies():
+    for movie in movies:
+        print(f"Name: {movie['name']}")
+        print(f"Director: {movie['director']}")
+        print(f"Release year: {movie['year']}")
+        print(" ")
 
-print(movies)
+
+menu()
