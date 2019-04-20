@@ -28,7 +28,7 @@ movie - {
 
 
 def menu():
-    user_input = input("Enter \n"
+    user_input = input("\nEnter \n"
                        "'a' to add a movie\n"
                        "'l' to see your movies\n"
                        "'f' to find a movie\n"
@@ -68,23 +68,28 @@ def show_movies(movies_list):
 
 
 def show_movie_details(movie):
-    print(f"Name: {movie['name']}")
+    print(f"\nName: {movie['name']}")
     print(f"Director: {movie['director']}")
     print(f"Release year: {movie['year']}")
-    print(" ")
 
 
 def find_movie():
     find_by = input("What property of the movie are you looking for? ")
     looking_for = input("What are you searching for? ")
 
+    found_movies = find_by_attribute(looking_for, lambda x: x[find_by])
+
+    show_movies(found_movies)
+
+
+def find_by_attribute(expected, finder):
     found = []
 
     for movie in movies:
-        if movie[find_by] == looking_for:
+        if finder(movie) == expected:
             found.append(movie)
 
-    print(found)
+    return found
 
 
 menu()
