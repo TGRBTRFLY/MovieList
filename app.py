@@ -87,9 +87,6 @@ def find_movie():
     print(found)
 
 
-
-
-
 menu()
 
 """
